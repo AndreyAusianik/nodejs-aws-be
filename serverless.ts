@@ -1,6 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 
 import * as functions from '@functions/index';
+import environment from './env';
 
 const serverlessConfiguration: AWS = {
   service: 'nodejs-aws-be',
@@ -20,9 +21,7 @@ const serverlessConfiguration: AWS = {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
     },
-    environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-    },
+    environment,
     lambdaHashingVersion: '20201221',
   },
   functions,
